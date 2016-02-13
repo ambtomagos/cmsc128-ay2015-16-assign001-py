@@ -1,4 +1,5 @@
 def numToWords():
+	num = input("Enter a number: ")
 	a=0
     if int(num) == 0:
     	print("zero")
@@ -77,9 +78,84 @@ def numToWords():
 	    			print("thousand ", end="")
 
 	    print("\n")	
-'''
+
 def wordsToNum():
-	
+	num = input("Enter a number (in words): ")
+	number = 0
+	temp = 0
+	if num == "zero":
+		print("0")
+	else: 
+		s = num.split(" ")
+		for i in range (0,len(s)):
+			if s[i] == "one":
+				temp+=1
+			elif s[i] == "two":
+				temp+=2
+			elif s[i] == "three":
+				temp+=3
+			elif s[i] == "four":
+				temp+=4
+			elif s[i] == "five":
+				temp+=5
+			elif s[i] == "six":
+				temp+=6
+			elif s[i] == "seven":
+				temp+=7
+			elif s[i] == "eight":
+				temp+=8
+			elif s[i] == "nine":
+				temp+=9
+			elif s[i] == "ten":
+				temp+=10
+			elif s[i] == "eleven":
+				temp+=11
+			elif s[i] == "twelve":
+				temp+=12
+			elif s[i] == "thirteen":
+				temp+=13
+			elif s[i] == "fourteen":
+				temp+=14
+			elif s[i] == "fifteen":
+				temp+=15
+			elif s[i] == "sixteen":
+				temp+=16
+			elif s[i] == "seventeen":
+				temp+=17
+			elif s[i] == "eighteen":
+				temp+=18
+			elif s[i] == "nineteen":
+				temp+=19
+			elif s[i] == "twenty":
+				temp+=20
+			elif s[i] == "thirty":
+				temp+=30
+			elif s[i] == "forty":
+				temp+=40
+			elif s[i] == "fifty":
+				temp+=50
+			elif s[i] == "sixty":
+				temp+=60
+			elif s[i] == "seventy":
+				temp+=70
+			elif s[i] == "eighty":
+				temp+=80
+			elif s[i] == "ninety":
+				temp+=90
+			elif s[i] == "hundred":
+				temp*=100
+			elif s[i] == "thousand":
+				temp*=1000
+				number+=temp
+				temp=0
+			elif s[i] == "million":
+				temp*=1000000
+				number+=temp
+				temp=0
+			if i==len(s)-1:
+				number+=temp
+		print(number)
+'''	
 def wordsToCurrency():
 '''
 def numberDelimited():
