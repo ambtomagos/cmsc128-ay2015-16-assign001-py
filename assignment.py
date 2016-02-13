@@ -1,6 +1,7 @@
 def numToWords():
-	num = input("Enter a number: ")
-	a=0
+    num = input("Enter a number: ")
+
+    a=0
     if int(num) == 0:
     	print("zero")
     elif len(num) > 7:
@@ -81,6 +82,9 @@ def numToWords():
 
 def wordsToNum():
 	num = input("Enter a number (in words): ")
+	convert(num)
+
+def convert(num):
 	number = 0
 	temp = 0
 	if num == "zero":
@@ -155,9 +159,14 @@ def wordsToNum():
 			if i==len(s)-1:
 				number+=temp
 		print(number)
-'''	
+
 def wordsToCurrency():
-'''
+	inp = input("Input: ")
+	s = inp.split(",")
+
+	print(s[1].replace("'", ""), end="")
+	convert(s[0].replace("'", ""))
+
 def numberDelimited():
 	s = input("Input: ")
 
@@ -165,6 +174,7 @@ def numberDelimited():
 	current = ""
 	results = []
 	currentQuote = ""
+
 	for c in s:
 	    if not inQuotes and c == ",":
 	        results.append(current)
@@ -187,4 +197,4 @@ def numberDelimited():
 		length = len(results[0])
 		length -= int(results[2])
 		print(results[0][:length] + results[1] + results[0][length:])
-
+		
