@@ -10,8 +10,8 @@ def numToWords():
 	    for i in range (0,len(num)):
 	    	if i==len(num)-1 or i==len(num)-3 or i==len(num)-4 or i==len(num)-6 or i==len(num)-7:
 	    		if a==1:
-	    			a=0
-	    			continue
+	    			a=0 #for checking if eleven-nineteen has already been printed
+	    			continue #if yes, units must not be printed anymore
 	    		if num[i] == "1":
 	    			print("one ", end="")
 	    		elif num[i] == "2":
@@ -84,13 +84,13 @@ def wordsToNum():
 	num = input("Enter a number (in words): ")
 	convert(num)
 
-def convert(num):
+def convert(num): #function for converting words into number form
 	number = 0
-	temp = 0
+	temp = 0 #temporary variable for computation
 	if num == "zero":
 		print("0")
 	else: 
-		s = num.split(" ")
+		s = num.split(" ") #put all words in a list
 		for i in range (0,len(s)):
 			if s[i] == "one":
 				temp+=1
@@ -156,28 +156,28 @@ def convert(num):
 				temp*=1000000
 				number+=temp
 				temp=0
-			if i==len(s)-1:
-				number+=temp
+			if i==len(s)-1: #if index is already for the last word in the list
+				number+=temp #put temp to number
 		print(number)
 
 def wordsToCurrency():
 	inp = input("Input: ")
-	s = inp.split(",")
+	s = inp.split(",") #splits the string by ',' then puts it in a list
 
-	print(s[1].replace("'", ""), end="")
-	convert(s[0].replace("'", ""))
+	print(s[1].replace("'", ""), end="") #replace all occurences of an apostrophe for the currency; prints the new string
+	convert(s[0].replace("'", "")) #replace all occurences of an apostrophe for the word; converts the new string to number form
 
 def numberDelimited():
 	s = input("Input: ")
 
 	inQuotes = False
 	current = ""
-	results = []
+	args = []
 	currentQuote = ""
 
-	for c in s:
+	for c in s: #extracts all characters that are not ''','"', or ',' then puts them in the list called "args"
 	    if not inQuotes and c == ",":
-	        results.append(current)
+	        args.append(current)
 	        current = ""
 	    elif not inQuotes and (c == '"' or c == "'"):
 	        currentQuote = c
@@ -188,13 +188,13 @@ def numberDelimited():
 	    else:
 	        current += c
 
-	results.append(current)
+	args.append(current)
 
-	if len(results) != 3:
+	if len(args) != 3: #if the number of arguments entered by the user is not equal to 3
 		print("Invalid Input!")
 
 	else:
-		length = len(results[0])
-		length -= int(results[2])
-		print(results[0][:length] + results[1] + results[0][length:])
-		
+		length = len(args[0])
+		length -= int(args[2]) #subtracts the number of jumps from the length of the first number entered
+		print(args[0][:length] + args[1] + args[0][length:]) #puts the 2nd argument (the delimiter) after the index of the new length
+
